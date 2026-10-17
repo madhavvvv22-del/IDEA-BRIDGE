@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080914;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* CRT Screen Effect */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 999;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+/* Retro Scanline Flicker Animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+/* Pixel / Arcade Border helper */
+.pixel-box {
+  border: 2px solid #2a2f58;
+  box-shadow: 4px 4px 0px 0px #0e1124;
+}
+
+.pixel-box-cyan {
+  border: 2px solid #06b6d4;
+  box-shadow: 4px 4px 0px 0px rgba(6, 182, 212, 0.4);
+}
+
+.pixel-box-gold {
+  border: 2px solid #f59e0b;
+  box-shadow: 4px 4px 0px 0px rgba(245, 158, 11, 0.4);
+}
+
+.pixel-box-pink {
+  border: 2px solid #ec4899;
+  box-shadow: 4px 4px 0px 0px rgba(236, 72, 153, 0.4);
+}
+
+.pixel-box-green {
+  border: 2px solid #10b981;
+  box-shadow: 4px 4px 0px 0px rgba(16, 185, 129, 0.4);
+}
+
+/* Custom retro scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0f1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2f58;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
